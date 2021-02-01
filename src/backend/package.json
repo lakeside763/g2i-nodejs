@@ -1,0 +1,36 @@
+{
+  "name": "g2i-nodejs",
+  "version": "1.0.0",
+  "description": "G2i node js challenge",
+  "main": "index.js",
+  "author": "Olalekan Idowu",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "local": "node -r dotenv/config index.js dotenv_config_path=.env.local",
+    "local:dev": "npx nodemon -r dotenv/config index.js dotenv_config_path=.env.local",
+    "json-server": "json-server --watch db.json",
+    "populate-db": "node scripts/populate-db.js",
+    "start": "concurrently \"yarn local:dev\"  \" yarn json-server\""
+  },
+  "dependencies": {
+    "@prisma/client": "^2.15.0",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "concurrently": "^5.3.0",
+    "dotenv-cli": "^4.0.0",
+    "express": "^4.17.1",
+    "json-server": "^0.16.3"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.15.0",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "nodemon": "^2.0.7"
+  }
+}

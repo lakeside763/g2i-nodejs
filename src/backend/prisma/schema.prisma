@@ -1,0 +1,14 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../database.db"
+}
+
+model acronym {
+  id      Int     @id @default(autoincrement())
+  acronym String?
+  meaning String?
+}
