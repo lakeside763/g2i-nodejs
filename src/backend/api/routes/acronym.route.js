@@ -1,7 +1,19 @@
 const router = require('../../express-router');
-const { getAcronyms, getAcronym } = require('./../controller/acronym.controller');
+const { protect } = require('./../../middleware/auth.middleware');
+const {
+  getAcronyms,
+  getAcronym,
+  getAcronymsByRandomCount,
+  createAcronym,
+  updateAcronym,
+  deleteAcronym,
+} = require('./../controller/acronym.controller');
 
-router.route('/acronym').get(getAcronyms);
-router.route('/acronym/:acronym').get(getAcronym);
+router.route('/').get(getAcronyms);
+router.route('/:acronym').get(getAcronym);
+router.route('/random/:count').get(getAcronymsByRandomCount);
+router.route('/').post(createAcronym);
+router.route('/:acronym').put(protect, updateAcronym);
+router.route('/:acronym').delete(protect, deleteAcronym);
 
 module.exports = router;

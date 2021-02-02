@@ -9,19 +9,16 @@
   "scripts": {
     "local": "node -r dotenv/config index.js dotenv_config_path=.env.local",
     "local:dev": "npx nodemon -r dotenv/config index.js dotenv_config_path=.env.local",
-    "json-server": "json-server --watch db.json",
     "populate-db": "node scripts/populate-db.js",
-    "start": "concurrently \"yarn local:dev\"  \" yarn json-server\""
+    "start": "yarn local"
   },
   "dependencies": {
     "@prisma/client": "^2.15.0",
-    "axios": "^0.21.1",
-    "body-parser": "^1.19.0",
+    "basic-auth": "^2.0.1",
     "compression": "^1.7.4",
-    "concurrently": "^5.3.0",
     "dotenv-cli": "^4.0.0",
     "express": "^4.17.1",
-    "json-server": "^0.16.3"
+    "tsscmp": "^1.0.6"
   },
   "devDependencies": {
     "@prisma/cli": "^2.15.0",

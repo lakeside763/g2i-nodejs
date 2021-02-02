@@ -1,3 +1,4 @@
+const { param } = require('../../express-router');
 const acronmyService = require('./../services/acronym.service');
 const { services } = require('./../services/index');
 
@@ -6,7 +7,10 @@ const acronyms = new acronmyService();
 module.exports = {
   getAcronyms: async ({ query }, res) => {
     try {
-      res.status(200).json(await services.acronyms.getAcronyms(query));
+      const acronyms = await services.acronyms.getAcronyms(query);
+      res.set('Content-Count', acronyms.count)
+        .status(200)
+        .json(acronyms)
     } catch (error) {
       return error;
     }
@@ -17,5 +21,33 @@ module.exports = {
     } catch (error) {
       return error;
     }
+  },
+  getAcronymsByRandomCount: async ({ params }, res) => {
+    try {
+      res.status(200).json(await services.acronyms.getAcronymsByRandomCount(params));
+    } catch (error) {
+      return error;
+    }
+  },
+  createAcronym: async ({ body }, res) => {
+    try {
+      res.status(200).json(await services.acronyms.createAcronym(body));
+    } catch(error) {
+      return error;
+    }
+  },
+  updateAcronym: async ({params, body}, res) => {
+    try {
+      res.status(200).json(await services.acronyms.updateAcronym({ params, body }))
+    } catch (error) {
+      return error;
+    }
+  },
+  deleteAcronym: async ({ params }, res) => {
+    try {
+      res.status(200).json(await services.acronyms.deleteAcronym(params));
+    } catch ({ statusCode, message}) {
+      return res.status(statusCode).json({error: { message } });
+    }
   }
-}
+ }
