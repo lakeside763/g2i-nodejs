@@ -1,9 +1,6 @@
 const { param } = require('../../express-router');
-const acronmyService = require('./../services/acronym.service');
 const { services } = require('./../services/index');
 
-
-const acronyms = new acronmyService();
 module.exports = {
   getAcronyms: async ({ query }, res) => {
     try {
