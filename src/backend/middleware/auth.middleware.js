@@ -12,7 +12,7 @@ exports.protect = ((req, res, next) => {
         login_details: {
           username: 'john@g2i.com', password: 'secret'
         }
-    }).end();
+      }).end();
     }
     next();
 });

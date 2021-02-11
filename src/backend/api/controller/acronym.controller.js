@@ -1,4 +1,3 @@
-const { param } = require('../../express-router');
 const { services } = require('./../services/index');
 
 module.exports = {
@@ -44,7 +43,7 @@ module.exports = {
     try {
       res.status(200).json(await services.acronyms.deleteAcronym(params));
     } catch ({ statusCode, message}) {
-      return res.status(statusCode).json({error: { message } });
+      return res.status(statusCode).json({error: { message } }).end();
     }
   }
  }
