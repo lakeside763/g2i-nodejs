@@ -1,0 +1,16 @@
+scalar Date
+scalar JSON
+scalar JSONObject
+
+type BooleanResponse {
+  "Response status"
+  status: Boolean
+  "Response message"
+  message: String
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+  PENDING
+}

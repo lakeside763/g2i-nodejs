@@ -1,0 +1,33 @@
+{
+  "defaultEnv": {"ENV": "NODE_ENV"},
+  "test": { "ENV" : "DATABASE_URL" },
+  "skaffold": { "ENV" : "DATABASE_URL" },
+  "local": { "ENV" : "DATABASE_URL" },
+  "development": {
+    "driver": "pg",
+    "user": { "ENV" : "DB_USER" },
+    "password" : { "ENV" : "DB_PASS" },
+    "host": { "ENV" : "DB_HOST" },
+    "port" : { "ENV" : "DB_PORT" },
+    "database": "g2i_development",
+    "schema": "public"
+  },
+  "staging": {
+    "driver": "pg",
+    "user": { "ENV" : "DB_USER" },
+    "password" : { "ENV" : "DB_PASS" },
+    "host": { "ENV" : "DB_HOST" },
+    "port" : { "ENV" : "DB_PORT" },
+    "database": "g2i_staging",
+    "schema": "public"
+  },
+  "production": {
+    "driver": "pg",
+    "user": { "ENV" : "DB_USER" },
+    "password" : { "ENV" : "DB_PASS" },
+    "host": { "ENV" : "DB_HOST" },
+    "port" : { "ENV" : "DB_PORT" },
+    "database": "g2i_production",
+    "schema": "public"
+  }
+}

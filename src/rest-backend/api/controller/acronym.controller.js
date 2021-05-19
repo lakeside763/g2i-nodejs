@@ -8,7 +8,7 @@ module.exports = {
         .status(200)
         .json(acronyms)
     } catch (error) {
-      return error;
+      return res.end(error.message);
     }
   },
   getAcronym: async({ params }, res) => {
