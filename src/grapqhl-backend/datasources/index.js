@@ -1,1 +1,1 @@
-module.exports.Accounts = require('./accounts.datasource');
+module.exports.Acronyms = require('./acronyms.datasource');

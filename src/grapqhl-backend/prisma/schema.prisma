@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model acronym {
+  id      Int     @id @default(autoincrement())
+  acronym String? @db.VarChar(255)
+  meaning String? @db.VarChar(255)
+}
+
+model migrations {
+  id     Int      @id @default(autoincrement())
+  name   String   @db.VarChar(255)
+  run_on DateTime @db.Timestamp(6)
+}

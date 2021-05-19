@@ -24,7 +24,7 @@ const server = new ApolloServer({
   resolvers,
   cache,
   dataSources: () => ({
-    accounts: new datasources.Accounts(),
+    acronyms: new datasources.Acronyms(),
   }),
   formatError: (err) => {
     if (err.extensions.code !== 'UNAUTHENTICATED' && err.extensions.code !== 'BAD_USER_INPUT') {

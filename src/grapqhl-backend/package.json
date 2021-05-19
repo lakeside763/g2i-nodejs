@@ -12,6 +12,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "yarn nodemon -r dotenv/config index.js dotenv_config_path=.env.local",
+    "populate-db": "node scripts/populate-db.js",
     "migrate:up": "yarn db-migrate up",
     "migrate:down": "yarn db-migrate down",
     "migrate:save": "npx dotenv -e .env.local -- yarn db-migrate create",
@@ -33,7 +34,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "@prisma/client": "^2.22.0",
+    "@prisma/client": "^2.23.0",
     "apollo-datasource": "^0.9.0",
     "apollo-server-cache-redis": "^1.5.0",
     "apollo-server-caching": "^0.7.0",
